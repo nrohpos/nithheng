@@ -1,0 +1,40 @@
+{
+  "agendas": [
+    {
+      "title": "ពិធីសែនព្រេន",
+      "time": "៥:០០ ល្ងាច",
+      "loadFrom": "left",
+      "icon": "🛕"
+    },
+    {
+      "title": "ទទួលភ្ញៀវកិត្តិយស",
+      "time": "៦:៣០ ល្ងាច",
+      "loadFrom": "right",
+      "icon": "👫"
+    },
+    {
+      "title": "ពិធីចូលរោង",
+      "time": "៧:០០ ល្ងាច",
+      "loadFrom": "left",
+      "icon": "☂️"
+    },
+    {
+      "title": "អញ្ជើញភ្ញៀវពិសាអាហារ",
+      "time": "៨:៣០ ល្ងាច",
+      "loadFrom": "right",
+      "icon": "🍽️"
+    },
+    {
+      "title": "ពិធីកាត់ខ្សែស្រឡាយ",
+      "time": "៩:០០ ល្ងាច",
+      "loadFrom": "left",
+      "icon": "🤝"
+    },
+    {
+      "title": "កម្មវិធីកំសាន្ត",
+      "time": "១០:០០ ល្ងាច",
+      "loadFrom": "right",
+      "icon": "🎤"
+    }
+  ]
+}
