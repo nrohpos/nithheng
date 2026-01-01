@@ -39,7 +39,6 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-
 // =====LOAD AGENDA =====
 async function loadAgenda() {
   const roadmapEl = document.getElementById("roadmap");
@@ -55,7 +54,11 @@ async function loadAgenda() {
         return `
           <div class="roadmap-item ${item.loadFrom}">
             <div class="milestone">
-              <div class="step-icon">${escapeHtml(item.icon || "✨")}</div>
+              <div class="step-icon">
+              <img src="assets/images/${escapeHtml(
+                item.icon || ""
+              )}" class="step-icon-img"/>
+              </div>
               <div class="card">
                 <span class="time">${escapeHtml(item.time || "")}</span>
                 <p>${escapeHtml(item.title || "")}</p>
@@ -67,7 +70,6 @@ async function loadAgenda() {
       .join("");
 
     initRoadmapAnimation();
-
   } catch (err) {
     console.error(err);
     roadmapEl.innerHTML = "<p>Failed to load agenda.</p>";
@@ -108,7 +110,7 @@ const revealCards = document.querySelectorAll(".person-card.reveal");
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
         observer.unobserve(entry.target);
@@ -118,8 +120,7 @@ const revealObserver = new IntersectionObserver(
   { threshold: 0.3 }
 );
 
-revealCards.forEach(card => revealObserver.observe(card));
-
+revealCards.forEach((card) => revealObserver.observe(card));
 
 // ===== ROADMAP SLIDE-IN ANIMATION =====
 const roadmapItems = document.querySelectorAll(".roadmap-item");
@@ -188,6 +189,14 @@ function updateMusicUI() {
   }
 }
 
+function shuffleArray(array) {
+  const arr = [...array]; // copy to avoid mutating original
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
 // ===== LOAD GALLERY FROM JSON =====
 function loadGallery(jsonPath, gridId) {
@@ -195,11 +204,11 @@ function loadGallery(jsonPath, gridId) {
   if (!grid) return;
 
   fetch(jsonPath)
-    .then(res => res.json())
-    .then(data => {
+    .then((res) => res.json())
+    .then((data) => {
       const observer = new IntersectionObserver(
         (entries, obs) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("show");
               obs.unobserve(entry.target);
@@ -208,13 +217,13 @@ function loadGallery(jsonPath, gridId) {
         },
         { threshold: 0.2 }
       );
-
-      data.gallery.forEach(item => {
+      let gallary = shuffleArray(data.gallery);
+      gallary.forEach((item) => {
         const wrapper = document.createElement("div");
         wrapper.className = "gallery-item";
 
         const img = document.createElement("img");
-        img.src = item.src; // load immediately
+        img.src = item.src; 
         img.alt = item.alt || "Gallery image";
         img.className = "gallery-img";
 
@@ -228,9 +237,8 @@ function loadGallery(jsonPath, gridId) {
         observer.observe(wrapper);
       });
     })
-    .catch(err => console.error("Gallery error:", err));
+    .catch((err) => console.error("Gallery error:", err));
 }
-
 
 // ===================== LIGHTBOX FUNCTIONS =====================
 const lightbox = document.getElementById("lightbox");
@@ -250,9 +258,98 @@ lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) lightbox.classList.remove("show");
 });
 
-
 //  ===================== CONTENT LOADED =====================
 document.addEventListener("DOMContentLoaded", () => {
   loadGallery("assets/json/gallary.json", "galleryGrid");
 });
 
+function escapeMd(s) {
+  return s.replace(/[_*[\]()~`>#+=|{}.!-]/g, "\\$&");
+}
+
+// ===== Wish Modal + Submit =====
+const wishBtn = document.getElementById("wishBtn");
+const wishModal = document.getElementById("wishModal");
+const wishClose = document.getElementById("wishClose");
+const wishForm = document.getElementById("wishForm");
+const wishName = document.getElementById("wishName");
+const wishMessage = document.getElementById("wishMessage");
+const wishStatus = document.getElementById("wishStatus");
+const wishSubmit = document.getElementById("wishSubmit");
+const honeypot = document.getElementById("website");
+
+function openWishModal() {
+  wishModal.classList.add("show");
+  wishModal.setAttribute("aria-hidden", "false");
+  setTimeout(() => wishMessage.focus(), 50);
+}
+function closeWishModal() {
+  wishModal.classList.remove("show");
+  wishModal.setAttribute("aria-hidden", "true");
+  wishStatus.textContent = "";
+}
+
+wishBtn.addEventListener("click", openWishModal);
+wishClose.addEventListener("click", closeWishModal);
+
+// close when clicking outside dialog
+wishModal.addEventListener("click", (e) => {
+  if (e.target === wishModal) closeWishModal();
+});
+
+// close on ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && wishModal.classList.contains("show"))
+    closeWishModal();
+});
+
+wishForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // basic spam block
+  if (honeypot.value.trim() !== "") return;
+
+  const name = (wishName.value || "").trim();
+  const message = (wishMessage.value || "").trim();
+
+  const cleanName = String(name).trim().slice(0, 100);
+  const cleanMsg = String(message).trim().slice(0, 500);
+
+  const text =
+    `💌 *New Wedding Wish*\n` +
+    (cleanName ? `From: *${escapeMd(cleanName)}*\n` : "") +
+    `📝 ${escapeMd(cleanMsg)}`;
+
+  if (!message) {
+    wishStatus.textContent = "Please write a message 💛";
+    return;
+  }
+
+  wishSubmit.disabled = true;
+  wishStatus.textContent = "Sending...";
+
+  try {
+    const telegramBotToken = "8509113750:AAEvjiZWQ17v_7RVJh9wdWcJFKtBycl1bko";
+    const groupID = "-1003695654922";
+    const messageThreadId = undefined; // optional
+
+    fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: groupID,
+        message_thread_id: messageThreadId || undefined,
+        text: text,
+      }),
+    }).finally(() => {
+      wishStatus.textContent = "Sent! Thank you for your wishes 💛";
+      wishForm.reset();
+      setTimeout(() => closeWishModal(), 900);
+    });
+  } catch (err) {
+    wishStatus.textContent = "Sorry, failed to send. Please try again.";
+    console.error(err);
+  } finally {
+    wishSubmit.disabled = false;
+  }
+});

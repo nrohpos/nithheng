@@ -1,39 +1,47 @@
 {
   "gallery": [
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-0.jpg",
       "alt": "Engagement moment"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-1.jpg",
       "alt": "Pre-wedding shoot"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-2.jpg",
       "alt": "Together forever"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-3.jpg",
       "alt": "Happy memories"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-4.jpg",
       "alt": "Engagement moment"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-5.jpg",
       "alt": "Pre-wedding shoot"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-6.jpg",
       "alt": "Together forever"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-7.jpg",
       "alt": "Happy memories"
     },
     {
-      "src": "assets/images/meet-the-couple.jpg",
+      "src": "assets/images/collections/img-collection-8.jpg",
+      "alt": "Happy memories"
+    },
+    {
+      "src": "assets/images/img-sampeach-eng.jpg",
+      "alt": "Happy memories"
+    },
+    {
+      "src": "assets/images/img-engagement.jpg",
       "alt": "Happy memories"
     }
   ]

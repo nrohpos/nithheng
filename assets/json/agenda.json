@@ -1,40 +1,64 @@
 {
   "agendas": [
     {
-      "title": "ពិធីសែនព្រេន",
-      "time": "៥:០០ ល្ងាច",
+      "title": "ពិធីសែនក្រុងពាលី",
+      "time": "ម៉ោង ០៥:៤៥ ព្រឹក",
       "loadFrom": "left",
-      "icon": "🛕"
+      "icon": "img-budda-pray.png"
     },
     {
-      "title": "ទទួលភ្ញៀវកិត្តិយស",
-      "time": "៦:៣០ ល្ងាច",
+      "title": "ជូបជុំភ្ញៀវកិត្តិយសដើម្បីរៀបចំពិធីហែជំនូន",
+      "time": "ម៉ោង ០៦:៣០ ព្រឹក",
       "loadFrom": "right",
-      "icon": "👫"
+      "icon": "img-greeting-procession.png"
     },
     {
-      "title": "ពិធីចូលរោង",
-      "time": "៧:០០ ល្ងាច",
+      "title": "ពិធីហែកំណត់ (ហែជំនូន) ចូលរោងជ័យ",
+      "time": "ម៉ោង ០៧:០០ ព្រឹក",
       "loadFrom": "left",
-      "icon": "☂️"
+      "icon": "img-procession.png"
     },
     {
-      "title": "អញ្ជើញភ្ញៀវពិសាអាហារ",
-      "time": "៨:៣០ ល្ងាច",
+      "title": "ពិធីនិយាយជើងការ រៀបរាប់ផ្លែឈើ",
+      "time": "ម៉ោង ០៧:៣០ ព្រឹក",
       "loadFrom": "right",
-      "icon": "🍽️"
+      "icon": "img-prep-food.png"
     },
     {
-      "title": "ពិធីកាត់ខ្សែស្រឡាយ",
-      "time": "៩:០០ ល្ងាច",
+      "title": "ពិធីបំពាក់ចិញ្ចៀន",
+      "time": "ម៉ោង ០៨:០០ ព្រឹក",
       "loadFrom": "left",
-      "icon": "🤝"
+      "icon": "img-prep-ring.png"
     },
     {
-      "title": "កម្មវិធីកំសាន្ត",
-      "time": "១០:០០ ល្ងាច",
+      "title": "ពិធីសូត្រមន្តចម្រើនព្រះបរិត្ត",
+      "time": "ម៉ោង ៨:៣០ ព្រឹក",
       "loadFrom": "right",
-      "icon": "🎤"
+      "icon": "img-prep-pray.png"
+    },
+    {
+      "title": "ពិធីកាត់សក់បង្កក់សិរី ចម្រើនកេសា",
+      "time": "ម៉ោង ៩:០០ ព្រឹក",
+      "loadFrom": "left",
+      "icon": "img-prep-hair.png"
+    },
+    {
+      "title": "ពិធីបង្វិលពពិល សំពះផ្ទឹមសែនចងដៃព្រះថោងតោងស្បៃនាងនាគ",
+      "time": "ម៉ោង ១០:៣០ ព្រឹក",
+      "loadFrom": "right",
+      "icon": "img-prep-hand-tie.png"
+    },
+    {
+      "title": "អញ្ចើញញភ្ញៀវកិត្តិយសពិសាអាហារថ្ងៃត្រង់",
+      "time": "ម៉ោង ១១:៣០ ព្រឹក",
+      "loadFrom": "left",
+      "icon": "img-prep-meal.png"
+    },
+    {
+      "title": "ទទួលបដិសណ្ឋារកិច្ចភ្ញៀវកិត្តិយសពិសាអាហារ ពេលល្ងាច ដោយមេត្រីភាព។ សូមអរគុណ!",
+      "time": "ម៉ោង ០៥:០០ ល្ងាច",
+      "loadFrom": "right",
+      "icon": "img-prep-gala.png"
     }
   ]
 }

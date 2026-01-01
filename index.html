@@ -105,27 +105,27 @@
         <div class="story-timeline">
           <div class="story-item">
             <img
-              src="assets/images/meet-the-couple.jpg"
+              src="assets/images/collections/img-collection-1.jpg"
               alt="First Meeting"
               class="story-img"
             />
 
-            <span class="story-year">2018</span>
-            <h3>When We First Met</h3>
+            <span class="story-year">2019</span>
+            <h3 class="story-title">When We First Met</h3>
             <p>
-              It all started with a simple hello. Two strangers crossed paths,
+              It all started with a simple hello. Two persons crossed paths,
               unaware that destiny had quietly begun writing our story.
             </p>
           </div>
 
           <div class="story-item">
             <img
-              src="assets/images/meet-the-couple.jpg"
+              src="assets/images/collections/img-collection-3.jpg"
               alt="First Meeting"
               class="story-img"
             />
             <span class="story-year">2020</span>
-            <h3>Growing Together</h3>
+            <h3 class="story-title">Growing Together</h3>
             <p>
               Through laughter, challenges, and countless memories, our bond
               grew stronger with every passing day.
@@ -134,12 +134,12 @@
 
           <div class="story-item">
             <img
-              src="assets/images/meet-the-couple.jpg"
+              src="assets/images/img-engagement.jpg"
               alt="First Meeting"
               class="story-img"
             />
-            <span class="story-year">2024</span>
-            <h3>The Proposal</h3>
+            <span class="story-year">2025</span>
+            <h3 class="story-title">The Engagement</h3>
             <p>
               With hearts full of love and certainty, we chose forever and
               promised to walk hand in hand through life.
@@ -148,12 +148,12 @@
 
           <div class="story-item">
             <img
-              src="assets/images/meet-the-couple.jpg"
+              src="assets/images/collections/img-collection-8.jpg"
               alt="First Meeting"
               class="story-img"
             />
             <span class="story-year">2026</span>
-            <h3>Our Forever Begins</h3>
+            <h3 class="story-title">Our Forever Begins</h3>
             <p>
               Surrounded by love, family, and friends, we celebrate the
               beginning of our forever.
@@ -165,7 +165,7 @@
 
     <section class="agenda">
       <div class="agenda-container">
-        <h2 class="agenda-title">កម្មវិធីពិធីអាពាហ៍ពិពាហ៍</h2>
+        <h2 class="agenda-title">កម្មវិធីពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍</h2>
         <p class="agenda-sub">ថ្ងៃសៅរ៍ ទី២៤ ខែមករា ឆ្នាំ២០២៦</p>
 
         <div class="roadmap" id="roadmap"></div>
@@ -200,7 +200,7 @@
           </a>
         </div>
 
-        <p class="location-note">📌 The Grand Terrace</p>
+        <p class="location-note">📌 The Grand Terrace (Building A)</p>
       </div>
     </section>
 
@@ -228,12 +228,6 @@
           Thank you for being part of our special day. Your love, presence, and
           blessings mean the world to us.
         </p>
-
-        <div class="with-love-signature">
-          <span class="heart">💛</span>
-          <p class="names">Thara Sophanith &amp; Lay Sivheng</p>
-          <p class="date">Saturday, January 24, 2026 • Cambodia</p>
-        </div>
       </div>
     </section>
 
@@ -244,13 +238,70 @@
       🔊
     </button>
 
+    <button id="wishBtn" class="wish-fab" aria-label="Send us a wish">
+      💌 Send a Wish
+    </button>
+
+    <div id="wishModal" class="wish-modal" aria-hidden="true">
+      <div
+        class="wish-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="wishTitle"
+      >
+        <button class="wish-close" id="wishClose" aria-label="Close">✕</button>
+
+        <h3 id="wishTitle">Send Us Your Wishes</h3>
+        <p class="wish-sub">
+          Your message will be sent to our
+          <a href="https://t.me/msg_sophanith_sivheng">Telegram channel</a> 💛
+        </p>
+
+        <form id="wishForm" class="wish-form">
+          <input
+            type="text"
+            id="wishName"
+            class="wish-input"
+            placeholder="Your name (optional)"
+            maxlength="40"
+          />
+
+          <textarea
+            id="wishMessage"
+            class="wish-textarea"
+            placeholder="Write your wishes here..."
+            maxlength="300"
+            required
+          ></textarea>
+
+          <!-- simple anti-spam honeypot -->
+          <input
+            type="text"
+            id="website"
+            class="hp"
+            tabindex="-1"
+            autocomplete="off"
+          />
+
+          <button type="submit" class="wish-submit" id="wishSubmit">
+            Send 💛
+          </button>
+
+          <p class="wish-status" id="wishStatus"></p>
+        </form>
+      </div>
+    </div>
+
     <script src="js/script.js"></script>
   </body>
 
   <footer class="site-footer">
     <div class="footer-container">
-      <p class="footer-title">Sophanith &amp; Sivheng</p>
-      <p class="footer-sub">Thank you for celebrating with us 💍</p>
+      <div class="with-love-signature">
+        <span class="heart">💛</span>
+        <p class="names">Thara Sophanith &amp; Lay Sivheng</p>
+        <p class="date">Saturday, January 24, 2026 • Cambodia</p>
+      </div>
       <p class="footer-copy">© 2026 Thara &amp; Miya • Made with love</p>
     </div>
   </footer>
