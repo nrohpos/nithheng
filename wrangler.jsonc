@@ -1,0 +1,8 @@
+{
+  "name": "kachorngcharm",
+  "compatibility_date": "2026-01-05",
+  "main": "js/index.js",
+  "assets": {
+    "directory": "public"
+  }
+}
