@@ -685,6 +685,70 @@ h3,
   }
 }
 
+/* =====================
+   WEDDING GIFT SECTION
+===================== */
+.wedding-gift {
+  padding: 90px 20px;
+}
+
+.gift-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+/* Image */
+.gift-image img {
+  width: 100%;
+  max-width: 360px;
+  margin: auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+/* Content */
+.gift-content {
+  max-width: 480px;
+}
+
+.gift-text {
+  color: var(--soft);
+  line-height: 1.8;
+  margin: 16px 0 18px;
+  font-size: 15px;
+}
+
+.gift-note {
+  font-style: italic;
+  color: var(--soft);
+  margin-bottom: 28px;
+}
+
+/* Button */
+.gift-btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  background: var(--primary-gold);
+  color: #fff;
+
+  box-shadow: 0 16px 30px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gift-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+
 /* =====================OUR GALLERY===================== */
 .gallery {
   padding: 90px 20px;
@@ -713,7 +777,6 @@ h3,
   column-count: 3;
   column-gap: 16px;
 }
-
 
 .gallery-img {
   width: 100%;
@@ -1071,5 +1134,20 @@ h3,
   .gallery-grid {
     grid-template-columns: 1fr;
     column-count: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .gift-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .gift-content {
+    margin: auto;
+  }
+
+  .gift-image img {
+    max-width: 280px;
   }
 }
