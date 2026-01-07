@@ -353,3 +353,71 @@ wishForm.addEventListener("submit", async (e) => {
     wishSubmit.disabled = false;
   }
 });
+
+
+function getInviteName() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("invite");
+}
+
+function formatName(name) {
+  // optional: handle "dalin-sok" or "dalin_sok"
+  return name
+    .replace(/[-_]+/g, " ")
+    .trim()
+    .split(" ")
+    .filter(Boolean)
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(" ");
+}
+
+const inviteRaw = getInviteName();
+const inviteName = inviteRaw ? formatName(inviteRaw) : null;
+
+// Fill name in the MAIN page
+const mainNameEl = document.getElementById("inviteName");
+if (mainNameEl) {
+  mainNameEl.textContent = inviteName || "Our Beloved Guest";
+}
+
+// Fill name in the COVER
+const coverNameEl = document.getElementById("inviteNameCover");
+if (coverNameEl) {
+  coverNameEl.textContent = inviteName || "Our Beloved Guest";
+}
+
+// Cover behavior
+const coverEl = document.getElementById("inviteCover");
+const enterBtn = document.getElementById("enterBtn");
+
+// Show cover only if there is an invite param (your choice)
+// If you want it ALWAYS, just remove this if block.
+if (!inviteName && coverEl) {
+  // no invite in URL -> skip cover
+  coverEl.classList.add("is-hidden");
+}
+
+async function startInvitation() {
+  // Start music (must be triggered by user click)
+  if (bgMusic) {
+    try {
+      await bgMusic.play();
+      // update your music button if you have one
+      const musicToggle = document.getElementById("musicToggle");
+      if (musicToggle) musicToggle.textContent = "🔊";
+    } catch (e) {
+      // autoplay blocked / failed — user can toggle manually
+      console.warn("Music play failed:", e);
+    }
+  }
+
+  // Hide cover
+  if (coverEl) coverEl.classList.add("is-hidden");
+
+  // Optionally force top
+  window.scrollTo({ top: 0, behavior: "instant" });
+}
+
+if (enterBtn) {
+  enterBtn.addEventListener("click", startInvitation);
+}

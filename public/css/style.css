@@ -42,7 +42,7 @@ h3,
 .hero {
   height: 100vh;
   width: 100%;
-  background: url("/assets/images/img-banner-1.jpg") center/cover no-repeat;
+  background: url("/assets/images/img-banner.jpg") center/cover no-repeat;
   position: relative;
 }
 
@@ -68,8 +68,7 @@ h3,
   margin-bottom: 10px;
 }
 
-.hero-sub,
-.hero-note {
+.hero-sub {
   font-size: 13px;
   font-family: "Poppins", serif;
   opacity: 0.9;
@@ -867,6 +866,60 @@ h3,
   font-style: italic;
   font-family: "Poppins", sans-serif;
 }
+
+.invite-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+
+.invite-cover__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.invite-cover__card {
+  width: min(520px, 100%);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 22px 18px;
+  color: #fff;
+}
+
+.invite-cover__dear {
+  margin: 10px 0 14px;
+  font-size: 16px;
+}
+
+.invite-cover__btn {
+  width: 100%;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.invite-cover__hint {
+  margin-top: 10px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Hide cover when opened */
+.invite-cover.is-hidden {
+  display: none;
+}
+
 
 .with-love-signature .heart {
   display: inline-block;

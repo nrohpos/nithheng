@@ -18,6 +18,32 @@
     />
   </head>
   <body>
+    <div id="inviteCover" class="invite-cover" aria-hidden="false">
+      <div class="invite-cover__overlay">
+        <div class="invite-cover__card">
+          <p class="invite-cover__dear">
+            Dear <strong id="inviteNameCover">Our Beloved Guest</strong>
+          </p>
+          <!-- Center content -->
+          <div class="invite-cover__content">
+            <h2 class="invite-cover__title">We’re getting married!</h2>
+
+            <p class="invite-cover__message">
+              Love has brought us together, and we are delighted to invite you
+              to witness the beginning of our forever.
+              <br /><br />
+              Join us on <strong>January 24, 2026</strong> at
+              <strong>The Grand Terrace</strong> as we celebrate our wedding
+              day.
+            </p>
+          </div>
+
+          <button id="enterBtn" class="invite-cover__btn" type="button">
+            You are invited 💛
+          </button>
+        </div>
+      </div>
+    </div>
     <header class="hero">
       <div class="hero-overlay">
         <div class="hero-content">
@@ -29,7 +55,6 @@
             Sophanith &amp; Sivheng
           </h2>
           <p class="hero-date animate fade-up delay-4">January 24th, 2026</p>
-
           <div class="countdown">
             <div class="time-box">
               <span id="days">00</span>
@@ -206,7 +231,6 @@
 
     <section class="wedding-gift">
       <div class="container gift-grid">
-        
         <div class="gift-content">
           <h2 class="section-title">Wedding Gift</h2>
 
@@ -230,10 +254,7 @@
           </a>
         </div>
         <div class="gift-image">
-          <img
-            src="assets/images/img-qr-aba.png"
-            alt="Wedding Gift QR Code"
-          />
+          <img src="assets/images/img-qr-aba.png" alt="Wedding Gift QR Code" />
         </div>
       </div>
     </section>
