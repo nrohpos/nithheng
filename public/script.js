@@ -223,7 +223,7 @@ function loadGallery(jsonPath, gridId) {
         wrapper.className = "gallery-item";
 
         const img = document.createElement("img");
-        img.src = item.src; 
+        img.src = item.src;
         img.alt = item.alt || "Gallery image";
         img.className = "gallery-img";
 
@@ -354,46 +354,36 @@ wishForm.addEventListener("submit", async (e) => {
   }
 });
 
-
 function getInviteName() {
   const params = new URLSearchParams(window.location.search);
-  return params.get("invite");
+  const raw = params.get("invite");
+  return raw ? decodeURIComponent(raw) : null;
 }
 
 function formatName(name) {
-  // optional: handle "dalin-sok" or "dalin_sok"
   return name
     .replace(/[-_]+/g, " ")
     .trim()
     .split(" ")
     .filter(Boolean)
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
     .join(" ");
 }
 
 const inviteRaw = getInviteName();
 const inviteName = inviteRaw ? formatName(inviteRaw) : null;
 
-// Fill name in the MAIN page
-const mainNameEl = document.getElementById("inviteName");
-if (mainNameEl) {
-  mainNameEl.textContent = inviteName || "Our Beloved Guest";
-}
-
 // Fill name in the COVER
 const coverNameEl = document.getElementById("inviteNameCover");
 if (coverNameEl) {
   coverNameEl.textContent = inviteName || "Our Beloved Guest";
+  document.body.style.overflow = "hidden";
 }
 
 // Cover behavior
 const coverEl = document.getElementById("inviteCover");
 const enterBtn = document.getElementById("enterBtn");
-
-// Show cover only if there is an invite param (your choice)
-// If you want it ALWAYS, just remove this if block.
 if (!inviteName && coverEl) {
-  // no invite in URL -> skip cover
   coverEl.classList.add("is-hidden");
 }
 
@@ -413,7 +403,7 @@ async function startInvitation() {
 
   // Hide cover
   if (coverEl) coverEl.classList.add("is-hidden");
-
+  document.body.style.overflow = "";
   // Optionally force top
   window.scrollTo({ top: 0, behavior: "instant" });
 }
