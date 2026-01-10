@@ -354,6 +354,22 @@ wishForm.addEventListener("submit", async (e) => {
   }
 });
 
+let savedScrollY = 0;
+
+function lockScroll() {
+  savedScrollY = window.scrollY || 0;
+  document.documentElement.classList.add("is-locked");
+  document.body.classList.add("is-locked");
+  document.body.style.top = `-${savedScrollY}px`;
+}
+
+function unlockScroll() {
+  document.documentElement.classList.remove("is-locked");
+  document.body.classList.remove("is-locked");
+  document.body.style.top = "";
+  window.scrollTo(0, savedScrollY);
+}
+
 function getInviteName() {
   const params = new URLSearchParams(window.location.search);
   const raw = params.get("invite");
@@ -377,7 +393,15 @@ const inviteName = inviteRaw ? formatName(inviteRaw) : null;
 const coverNameEl = document.getElementById("inviteNameCover");
 if (coverNameEl) {
   coverNameEl.textContent = inviteName || "Our Beloved Guest";
-  document.body.style.overflow = "hidden";
+
+  const hasInviteName =
+    typeof inviteName === "string" && inviteName.trim().length > 0;
+
+  if (hasInviteName) {
+    lockScroll();
+  } else {
+    unlockScroll();
+  }
 }
 
 // Cover behavior
@@ -403,7 +427,7 @@ async function startInvitation() {
 
   // Hide cover
   if (coverEl) coverEl.classList.add("is-hidden");
-  document.body.style.overflow = "";
+  unlockScroll();
   // Optionally force top
   window.scrollTo({ top: 0, behavior: "instant" });
 }

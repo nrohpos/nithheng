@@ -16,7 +16,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Metal", sans-serif;
 }
 
 body {
@@ -24,6 +24,18 @@ body {
   font-weight: 400;
   background-color: var(--primary);
   color: var(--white);
+}
+
+html.is-locked,
+body.is-locked {
+  overflow: hidden !important;
+  height: 100%;
+  touch-action: none;
+}
+
+body.is-locked {
+  position: fixed;
+  width: 100%;
 }
 
 h1,
@@ -340,21 +352,6 @@ h3,
   flex-direction: row-reverse;
 }
 
-/* .step-icon {
-  width: 88px;
-  height: 88px;
-  border-radius: 14px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #fff;
-  border: 2px solid var(--primary-gold);
-  box-shadow: var(--shadow-soft);
-
-  flex-shrink: 0;
-} */
 
 .step-icon-img {
   width: 88px;
@@ -363,10 +360,10 @@ h3,
   display: block;
 }
 .card {
-  max-width: 260px;
+  max-width: 700px;
   background: #ffffffcc;
   border-radius: 14px;
-  padding: 16px 20px;
+  padding: 16px 16px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -907,6 +904,7 @@ h3,
   border-radius: 14px;
   font-weight: 600;
   cursor: pointer;
+  color: var(--primary);
 }
 
 .invite-cover__hint {
@@ -1190,7 +1188,7 @@ h3,
 
   .agenda-title {
     font-size: 22px;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", "Metal", sans-serif;
   }
 
   .countdown {
